@@ -8,16 +8,13 @@
       <VerticalStackLayout>
         <Label Text="Empty collection:"
                FontAttributes="Bold" />
-        <CollectionView x:Name="EmptyCollection">
+        <CollectionView x:Name="EmptyCollection"
+                        EmptyView="No values found...">
           <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="x:String">
               <Label Text="{Binding}" />
             </DataTemplate>
           </CollectionView.ItemTemplate>
-
-          <CollectionView.EmptyView>
-            <Label Text="No values found..." />
-          </CollectionView.EmptyView>
         </CollectionView>
 
         <Label Text="Null collection:"
@@ -30,7 +27,11 @@
           </CollectionView.ItemTemplate>
 
           <CollectionView.EmptyView>
-            <Label Text="No values found..." />
+            <ContentView>
+              <VerticalStackLayout>
+                <Label Text="No values found..." />
+              </VerticalStackLayout>
+            </ContentView>
           </CollectionView.EmptyView>
         </CollectionView>
 
@@ -42,10 +43,6 @@
               <Label Text="{Binding}" />
             </DataTemplate>
           </CollectionView.ItemTemplate>
-
-          <CollectionView.EmptyView>
-            <Label Text="No values found..." />
-          </CollectionView.EmptyView>
         </CollectionView>
       </VerticalStackLayout>
     </VerticalStackLayout>
